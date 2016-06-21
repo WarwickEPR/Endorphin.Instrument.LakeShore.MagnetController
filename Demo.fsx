@@ -56,9 +56,9 @@ let uiContext = WindowsFormsSynchronizationContext.Current
 let showTimeChart () = async {
     // add the chart to the form using the UI thread context
     do! Async.SwitchToContext uiContext
-        
-    let chart = 
-        Chart.Combine [ 
+
+    let chart =
+        Chart.Combine [
             temperatureMeasurement.Publish
             |> Event.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
             |> Observable.observeOnContext uiContext
@@ -68,7 +68,7 @@ let showTimeChart () = async {
             |> Event.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
             |> Observable.observeOnContext uiContext
             |> LiveChart.FastLineIncremental
-            
+
             heaterOutputMeasurement.Publish
             |> Event.mapi (fun i (HeaterOutput output) -> ((i * measurementInterval / 1000), output))
             |> Observable.observeOnContext uiContext
@@ -79,7 +79,7 @@ let showTimeChart () = async {
 
     new ChartTypes.ChartControl(chart, Dock = DockStyle.Fill)
     |> form.Controls.Add
-    
+
     // return to the thread pool context
     do! Async.SwitchToThreadPool() }
 
@@ -92,7 +92,7 @@ let rec monitorController tempController repeats interval = async {
     temperatureMeasurement.Trigger  temperature
     targetTemperature.Trigger finalSetPoint
     heaterOutputMeasurement.Trigger heaterOutput
-    if repeats <> 0 then 
+    if repeats <> 0 then
         do! Async.Sleep interval
         do! monitorController tempController (repeats - 1) interval }
 
@@ -119,8 +119,8 @@ let experiment = async {
         // monitoring the temperature and heater output
         Async.Start (setSetPoint tempController setPointDelay finalSetPoint |> Async.Ignore)
         do! monitorController tempController measurementRepeats measurementInterval
-    
-    finally 
+
+    finally
         Async.StartWithContinuations(
             TempController.closeInstrument tempController,
             (fun ()  -> printfn "Successfully closed connection to temperature controller."),
