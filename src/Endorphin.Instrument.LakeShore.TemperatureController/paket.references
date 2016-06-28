@@ -2,8 +2,8 @@ FSharp.Core
 FSharp.Text.RegexProvider
 Endorphin.Core.NationalInstruments
 
-File:String.fs
-File:Units.fs
-File:Choice.fs
-File:Byte.fs
+File:Endorphin.Core.String.fs
+File:Endorphin.Core.Units.fs
+File:Endorphin.Core.Choice.fs
+File:Endorphin.Core.Byte.fs
 

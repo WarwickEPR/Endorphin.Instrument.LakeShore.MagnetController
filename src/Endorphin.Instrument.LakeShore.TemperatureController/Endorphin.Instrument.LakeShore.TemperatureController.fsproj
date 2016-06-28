@@ -51,21 +51,21 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Byte.fs">
+    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Endorphin.Core.String.fs">
       <Paket>True</Paket>
-      <Link>paket-files/Byte.fs</Link>
+      <Link>paket-files/Endorphin.Core.String.fs</Link>
     </Compile>
-    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\String.fs">
+    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Endorphin.Core.Units.fs">
       <Paket>True</Paket>
-      <Link>paket-files/String.fs</Link>
+      <Link>paket-files/Endorphin.Core.Units.fs</Link>
     </Compile>
-    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Units.fs">
+    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Endorphin.Core.Choice.fs">
       <Paket>True</Paket>
-      <Link>paket-files/Units.fs</Link>
+      <Link>paket-files/Endorphin.Core.Choice.fs</Link>
     </Compile>
-    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Choice.fs">
+    <Compile Include="..\..\paket-files\WarwickEPR\Endorphin.Core\src\Endorphin.Core.Byte.fs">
       <Paket>True</Paket>
-      <Link>paket-files/Choice.fs</Link>
+      <Link>paket-files/Endorphin.Core.Byte.fs</Link>
     </Compile>
     <Compile Include="Model.fs" />
     <Compile Include="Parsing.fs" />
