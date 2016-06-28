@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>TempController - Endorphin.Core</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="University of Warwick EPR and Diamond group"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/Endorphin.Core/content/style.css" />
+    <script type="text/javascript" src="/Endorphin.Core/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/anton-pt/Endorphin.Core">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/Endorphin.Core/index.html">Endorphin.Core</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+
+
+<h1>TempController</h1>
+<p>
+  <span>Namespace: Endorphin.Instrument.LakeShore.TemperatureController</span><br />
+</p>
+<div class="xmldoc">
+<p>Functions posting commands and performs queries to a LakeShore model 325 temperature
+controller.</p>
+
+</div>
+
+<!-- Render nested types and modules, if there are any -->
+
+  <h3>Functions and values</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1', 1)" onmouseover="showTip(event, '1', 1)">
+            closeInstrument arg1
+          </code>
+          <div class="tip" id="1">
+            <strong>Signature:</strong> TempController -&gt; Async&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L22-22" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Asynchronously close the connection to the given temperature controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '2', 2)" onmouseover="showTip(event, '2', 2)">
+            openInstrument visaAddress timeout
+          </code>
+          <div class="tip" id="2">
+            <strong>Signature:</strong> visaAddress:string -&gt; timeout:int&lt;MeasureProduct&lt;ms,MeasureOne&gt;&gt; -&gt; Async&lt;TempController&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L15-15" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Open the temperature controller at the specified VISA address with the specified
+timeout for commands.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '3', 3)" onmouseover="showTip(event, '3', 3)">
+            queryControlMode 
+          </code>
+          <div class="tip" id="3">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;ControlMode&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L39-39" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the control mode for the specified control loop on the temperature
+controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '4', 4)" onmouseover="showTip(event, '4', 4)">
+            queryCurrentHeatOutput 
+          </code>
+          <div class="tip" id="4">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;HeaterOutput&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L46-46" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the current heater output for the specified control loop on the temperature
+controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '5', 5)" onmouseover="showTip(event, '5', 5)">
+            queryCurrentTemperature 
+          </code>
+          <div class="tip" id="5">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;Temperature&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L27-27" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Querry the current temperature readout for the specified control loop on the
+temperature controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '6', 6)" onmouseover="showTip(event, '6', 6)">
+            queryIdentity 
+          </code>
+          <div class="tip" id="6">
+            <strong>Signature:</strong> TempController -&gt; Async&lt;Choice&lt;Identity,exn&gt;&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L11-11" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the device identity information.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '7', 7)" onmouseover="showTip(event, '7', 7)">
+            queryManualHeaterOutput 
+          </code>
+          <div class="tip" id="7">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;HeaterOutput&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L51-51" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the manual heater output for the specified control loop on the temperature
+controller. This value only has effect when the control loop is in manual control
+mode (open loop).</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '8', 8)" onmouseover="showTip(event, '8', 8)">
+            queryPidSettings 
+          </code>
+          <div class="tip" id="8">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;PidSettings&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L61-61" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the PID settings for the specified control loop on the temperature
+controller. These settings only have effect when the control loop is in manual PID
+mode.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '9', 9)" onmouseover="showTip(event, '9', 9)">
+            querySetPoint 
+          </code>
+          <div class="tip" id="9">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Async&lt;Temperature&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L31-31" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Query the set point (target temperature) for the specified control loop on the
+temperature controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '10', 10)" onmouseover="showTip(event, '10', 10)">
+            setControlMode 
+          </code>
+          <div class="tip" id="10">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; ControlMode -&gt; Async&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L42-42" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Set the control mode for the specified control loop on the temperature controller.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '11', 11)" onmouseover="showTip(event, '11', 11)">
+            setManualHeaterOutput 
+          </code>
+          <div class="tip" id="11">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; HeaterOutput -&gt; Async&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L56-56" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Set the manual heater output for the specified control loop on the temperature
+controller. This value only has effect when the control loop is in manual control
+mode (open loop).</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '12', 12)" onmouseover="showTip(event, '12', 12)">
+            setPidSettings 
+          </code>
+          <div class="tip" id="12">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; PidSettings -&gt; Async&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L65-65" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Set the PID settings for the specified control loop on the temperature controller.
+These settings only have effect when the control loop is in manual PID mode.</p>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '13', 13)" onmouseover="showTip(event, '13', 13)">
+            setSetPoint 
+          </code>
+          <div class="tip" id="13">
+            <strong>Signature:</strong> TempController -&gt; Loop -&gt; Temperature -&gt; Async&lt;unit&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+            <a href="http://github.com/anton-pt/Endorphin.Core/tree/master/src/Endorphin.Instrument.LakeShore.TemperatureController/TempController.fs#L35-35" class="github-link">
+              <img src="../content/img/github.png" class="normal" />
+              <img src="../content/img/github-blue.png" class="hover" />
+            </a>
+          <p>Set the set point (target temperature) for the specified control loop on the
+temperature controller.</p>
+
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="span3">
+          <img src="/Endorphin.Core/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">Endorphin.Core</li>
+            <li><a href="/Endorphin.Core/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/Endorphin.Core">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/anton-pt/Endorphin.Core">Source Code on GitHub</a></li>
+            <li><a href="/Endorphin.Core/license.html">License</a></li>
+            <li><a href="/Endorphin.Core/release-notes.html">Release Notes</a></li>
+            
+            <li class="nav-header">Getting started</li>
+            <li><a href="/Endorphin.Core/tutorial.html">Sample tutorial</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="/Endorphin.Core/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/anton-pt/Endorphin.Core"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>
