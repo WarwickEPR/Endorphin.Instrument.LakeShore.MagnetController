@@ -1,6 +1,6 @@
 // Copyright (c) University of Warwick. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 
-namespace Endorphin.Instrument.LakeShoreTempController
+namespace Endorphin.Instrument.LakeShore.TemperatureController
 
 open Microsoft.FSharp.Data.UnitSystems.SI.UnitSymbols
 open System.Text
@@ -16,7 +16,7 @@ module internal Parsing =
     /// Attempt to parse the given identity string and check if correspond to a LakeShore
     /// model 325 temperature controller.
     let internal tryParseIdentity str =
-        let parts = 
+        let parts =
             String.split [|','|] str
             |> Array.map (String.trimStart [|' '|] >> String.trimEnd [|' '|])
 
@@ -24,7 +24,7 @@ module internal Parsing =
         elif parts.[0] <> "LSCI"     then Choice.fail << UnexpectedReplyException <| sprintf "Unexpected device manufacturer: %s." parts.[0]
         elif parts.[1] <> "MODEL325" then Choice.fail << UnexpectedReplyException <| sprintf "Unexpected device model number: %s." parts.[1]
         else
-            Choice.succeed <| 
+            Choice.succeed <|
                 { Manufacturer = parts.[0]
                   ModelNumber  = parts.[1]
                   SerialNumber = parts.[2]
@@ -82,7 +82,7 @@ module internal Parsing =
     type private PidRegex = Regex< @"\G(?<Proportional>[\+\-]\d{1,4}\.\d{0,4}),(?<Integral>[\+\-]\d{1,4}\.\d{0,4}),(?<Differential>[\+\-]\d{1,4}\.\d{0,4})\s$" >
 
     /// Parse a PID settings string.
-    let parsePidSettings str = 
+    let parsePidSettings str =
         let pidMatch = PidRegex().Match(str)
         if pidMatch.Success then
             { Proportional = float pidMatch.Proportional.Value
@@ -92,8 +92,7 @@ module internal Parsing =
 
     /// Encode PID settings to a string.
     let pidSettingsString pid = sprintf "%+.5g, %+.5g, %+.5g" pid.Proportional pid.Integral pid.Differential
-    
+
     /// Parse a standard event status byte string.
     let parseStandardEventStatus (str : string) =
         StandardEventStatus <| (byte str)
-        

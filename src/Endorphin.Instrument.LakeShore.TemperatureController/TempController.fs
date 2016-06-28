@@ -1,16 +1,16 @@
 // Copyright (c) University of Warwick. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 
-namespace Endorphin.Instrument.LakeShoreTempController
+namespace Endorphin.Instrument.LakeShore.TemperatureController
 
 open Endorphin.Core
 
 /// Functions posting commands and performs queries to a LakeShore model 325 temperature
-/// controller. 
+/// controller.
 module TempController =
     /// Query the device identity information.
     let queryIdentity = IO.queryIdentity Keys.identity
 
-    /// Open the temperature controller at the specified VISA address with the specified 
+    /// Open the temperature controller at the specified VISA address with the specified
     /// timeout for commands.
     let openInstrument visaAddress timeout = async {
         let visaInstrument = Visa.openGpibInstrument visaAddress timeout None
@@ -21,7 +21,7 @@ module TempController =
     /// Asynchronously close the connection to the given temperature controller.
     let closeInstrument (TempController tempController) =
         Visa.closeInstrument tempController
-    
+
     /// Querry the current temperature readout for the specified control loop on the
     /// temperature controller.
     let queryCurrentTemperature = IO.queryTemperatureForLoop Keys.temperature
@@ -44,12 +44,12 @@ module TempController =
     /// Query the current heater output for the specified control loop on the temperature
     /// controller.
     let queryCurrentHeatOutput = IO.queryHeaterOutputForLoop Keys.heaterOutput
-    
+
     /// Query the manual heater output for the specified control loop on the temperature
     /// controller. This value only has effect when the control loop is in manual control
     /// mode (open loop).
     let queryManualHeaterOutput = IO.queryHeaterOutputForLoop Keys.manualHeaterOuptut
-    
+
     /// Set the manual heater output for the specified control loop on the temperature
     /// controller. This value only has effect when the control loop is in manual control
     /// mode (open loop).

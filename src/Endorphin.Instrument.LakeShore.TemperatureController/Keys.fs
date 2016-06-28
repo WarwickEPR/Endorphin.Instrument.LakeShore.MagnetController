@@ -1,13 +1,13 @@
 // Copyright (c) University of Warwick. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 
-namespace Endorphin.Instrument.LakeShoreTempController
+namespace Endorphin.Instrument.LakeShore.TemperatureController
 
 [<RequireQualifiedAccess>]
 /// VISA command keys for instrument.
 module internal Keys =
     /// Device identity.
     let identity = "*IDN"
-    
+
     /// Standard event status byte.
     let standardEventStatus = "*ESR"
 

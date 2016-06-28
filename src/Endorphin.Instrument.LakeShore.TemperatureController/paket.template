@@ -1,0 +1,25 @@
+type project
+title
+    Endorphin.Instrument.LakeShore.TemperatureController
+owners
+    University of Warwick EPR and Diamond group
+authors 
+    University of Warwick EPR and Diamond group
+projectUrl
+    https://warwickepr.github.io/Endorphin.Instrument.LakeShore.TemperatureController
+iconUrl
+    https://raw.githubusercontent.com/WarwickEPR/Endorphin.Instrument.LakeShore.TemperatureController/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/WarwickEPR/Endorphin.Instrument.LakeShore.TemperatureController/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    fsharp science
+summary
+    F# wrapper for LakeShore temperature controllers
+description
+    F# wrapper for software control of the series of temperature controllers
+    made by LakeShore
+	
