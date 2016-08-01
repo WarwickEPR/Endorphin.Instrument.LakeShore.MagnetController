@@ -1,22 +1,22 @@
 // Copyright (c) University of Warwick. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 
-#r @"../Endorphin.Core/bin/Debug/Endorphin.Core.dll"
-#r "../Endorphin.Utilities/bin/Debug/Endorphin.Utilities.dll"
-#r @"bin\Debug\Endorphin.Instrument.LakeShoreTempController.dll"
-#r @"../packages/FSharp.Charting.0.90.9/lib/net40/FSharp.Charting.dll"
-#r @"../packages/log4net.2.0.3/lib/net40-full/log4net.dll"
-#r @"System.Windows.Forms.DataVisualization.dll"
-#r @"../packages/FSharp.Control.Reactive.3.2.0/lib/net40/FSharp.Control.Reactive.dll"
+#I "../../packages/"
+
+#r "Endorphin.Core/lib/net452/Endorphin.Core.dll"
+#r "Endorphin.Core.NationalInstruments/lib/net452/Endorphin.Core.NationalInstruments.dll"
+#r "bin/Debug/Endorphin.Instrument.LakeShore.TemperatureController.dll"
+#r "FSharp.Charting/lib/net40/FSharp.Charting.dll"
+#r "System.Windows.Forms.DataVisualization.dll"
+#r "FSharp.Control.Reactive/lib/net40/FSharp.Control.Reactive.dll"
 
 open System.Threading
 open System.Windows.Forms
 open Microsoft.FSharp.Data.UnitSystems.SI.UnitSymbols
 
 open Endorphin.Core
-open Endorphin.Instrument.LakeShoreTempController
+open Endorphin.Instrument.LakeShore.TemperatureController
 open FSharp.Charting
 open FSharp.Control.Reactive
-open log4net.Config
 
 // enable logging (shows all VISA communication by default)
 // BasicConfigurator.Configure()
@@ -60,17 +60,17 @@ let showTimeChart () = async {
     let chart =
         Chart.Combine [
             temperatureMeasurement.Publish
-            |> Event.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
+            |> Observable.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
             |> Observable.observeOnContext uiContext
             |> LiveChart.FastLineIncremental
 
             targetTemperature.Publish
-            |> Event.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
+            |> Observable.mapi (fun i (Temperature_K temp) -> ((i * measurementInterval / 1000), temp))
             |> Observable.observeOnContext uiContext
             |> LiveChart.FastLineIncremental
 
             heaterOutputMeasurement.Publish
-            |> Event.mapi (fun i (HeaterOutput output) -> ((i * measurementInterval / 1000), output))
+            |> Observable.mapi (fun i (HeaterOutput output) -> ((i * measurementInterval / 1000), output))
             |> Observable.observeOnContext uiContext
             |> LiveChart.FastLineIncremental ]
         |> Chart.WithXAxis(Title = "Time (s)")

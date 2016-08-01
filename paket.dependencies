@@ -6,6 +6,9 @@ nuget FSharp.Text.RegexProvider ~> 0.0.7
 nuget Endorphin.Core
 nuget Endorphin.Core.NationalInstruments
 
+nuget FSharp.Charting
+nuget FSharp.Control.Reactive
+
 github WarwickEPR/Endorphin.Core src/Endorphin.Core.Choice.fs
 github WarwickEPR/Endorphin.Core src/Endorphin.Core.String.fs
 github WarwickEPR/Endorphin.Core src/Endorphin.Core.Byte.fs
