@@ -8,7 +8,7 @@ open Endorphin.Core
 module internal IO =
     /// Performs a query asynchronously and parses the result with the given parsing function.
     let private performQuery (parseFunc : string -> 'T) query (TempController tempController) = async {
-        let! response = query |> Visa.String.queryAsync tempController
+        let! response = query |> Visa.String.query tempController
         return parseFunc response }
 
     /// Performs a query for the value corresponding to the given key and parses the result with
@@ -28,7 +28,7 @@ module internal IO =
     /// Sends the provided command string to the instrument and immediately checks the standard
     /// event status byte for errors.
     let private performCommand command (TempController tempController) = async {
-        command |> Visa.String.writeAsync tempController
+        command |> Visa.String.write tempController
         let! status = queryStandardEventStatus (TempController tempController)
         if Status.commandError   status then invalidArg command "Invalid command sent to instrument."
         if Status.executionError status then invalidArg command "Invalid parameters for command." }
