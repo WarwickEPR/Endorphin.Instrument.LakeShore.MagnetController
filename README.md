@@ -5,7 +5,7 @@ LakeShore temperature controllers.
 
 Documentation:
 http://WarwickEPR.github.io/Endorphin.Instrument.LakeShore.TemperatureController
-More documentation to follow...
+
 
 ## Maintainers
 
